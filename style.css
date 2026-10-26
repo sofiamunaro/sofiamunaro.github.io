@@ -1,0 +1,306 @@
+/* Fonte dos títulos (Geist Pixel, licença OFL, arquivos em fonts/).
+   Para trocar a variante, mude Square por Grid, Line, Triangle ou Circle. */
+@font-face {
+  font-family: "Geist Pixel";
+  src: url("fonts/GeistPixel-Square.woff2") format("woff2");
+  font-display: swap;
+}
+
+:root {
+  --bg: #0b130e;        
+  --surface: #122018;   
+  --rule: #213a2a;      
+  --text: #d6ecd2;      
+  --muted: #7f9e86;     
+  --accent: #8fc48a;
+  --glow: rgba(143, 196, 138, 0.15);
+  --mono: "Space Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --serif: "Literata", Georgia, "Times New Roman", serif;
+  --display: "Geist Pixel", var(--mono);
+
+  --largura: 40rem;     
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.125rem;      /* 18px */
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.22) 3px
+  );
+}
+
+::selection { background: var(--accent); color: var(--bg); }
+
+.wrap {
+  width: 100%;
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- Links ---------- */
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.site-header .wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.site-name {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.site-name:hover { color: var(--accent); }
+
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+}
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--text); }
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+}
+
+main { flex: 1; padding-bottom: 4rem; }
+
+/* ---------- Títulos ---------- */
+
+h1, h2, h3 { line-height: 1.25; }
+
+.page-title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 7vw, 3.25rem);
+  letter-spacing: 0;
+  color: var(--accent);
+  text-shadow: 0 0 18px var(--glow);
+  margin: 2.5rem 0 1.5rem;
+}
+
+.section-title {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 3.5rem 0 1rem;
+}
+
+/* ---------- Página inicial ---------- */
+
+.lede { font-size: 1.2rem; margin: 0 0 1rem; }
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+}
+
+/* ---------- Lista de posts ---------- */
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--rule);
+}
+.post-list li {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.25rem 1.25rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.post-list time {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-top: 0.2rem;
+}
+.post-list a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.post-list a:hover { color: var(--accent); }
+.post-list p {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.intro { color: var(--muted); margin: 0 0 2rem; }
+
+/* ---------- Página de post ---------- */
+
+.post-header { margin: 2.5rem 0 2.25rem; }
+
+.post-header h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 5vw, 2.4rem);
+  letter-spacing: -0.01em;
+  margin: 0 0 0.75rem;
+}
+
+.post-meta {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.post h2 { font-size: 1.4rem; margin: 2.5rem 0 0.5rem; }
+.post h3 { font-size: 1.15rem; margin: 2rem 0 0.5rem; }
+.post p, .post ul, .post ol { margin: 0 0 1.15rem; }
+.post li { margin-bottom: 0.35rem; }
+
+.post blockquote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+}
+
+.post img, .post svg, .post video {
+  max-width: 100%;
+  height: auto;
+}
+
+.post figure { margin: 2rem 0; }
+.post figcaption {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+/* Código */
+code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  background: var(--surface);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+pre {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  margin: 1.5rem 0;
+}
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.82rem;
+}
+
+/* Tabelas */
+.table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+table {
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 18rem;
+}
+th, td {
+  text-align: right;
+  padding: 0.45rem 1.1rem;
+  border-bottom: 1px solid var(--rule);
+}
+th:first-child, td:first-child { text-align: left; padding-left: 0; }
+th { font-weight: 600; color: var(--muted); }
+td { font-family: var(--mono); font-size: 0.88rem; }
+
+/* Fórmulas (KaTeX) */
+.katex { font-size: 1.05em; white-space: nowrap; }
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+  margin: 1.5rem 0;
+}
+
+.back { font-family: var(--mono); font-size: 0.95rem; margin-top: 3rem; }
+
+/* ---------- Rodapé ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.site-footer .wrap { padding-top: 1.5rem; padding-bottom: 2rem; }
+.site-footer p { margin: 0; }
+
+/* ---------- Celular ---------- */
+
+@media (max-width: 34rem) {
+  body { font-size: 1.0625rem; }
+  .site-nav { gap: 1rem; }
+  .post-list li { grid-template-columns: 1fr; gap: 0.1rem; }
+  .post-list time { padding-top: 0; }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+  MODELO DE POST
+  1. Copie este arquivo e renomeie (minúsculas, sem espaço nem acento),
+     por exemplo: posts/meu-experimento.html
+  2. Troque o que está marcado com TROQUE.
+  3. Adicione o post na lista de blog.html.
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TROQUE: título do post | Sofia Munaro</title>
+  <meta name="description" content="TROQUE: resumo de uma linha.">
+
+  <meta property="og:title" content="TROQUE: título do post">
+  <meta property="og:description" content="TROQUE: resumo de uma linha.">
+  <meta property="og:type" content="article">
+
+  <link rel="icon" href="../favicon.png?v=2" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- Fórmulas: $...$ no meio do texto, $$...$$ em destaque.
+       Para escrever cifrão de dinheiro sem virar fórmula, use
+       <span class="no-math">R$ 10,00</span> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ],
+      ignoredClasses: ['no-math'],
+      throwOnError: false
+    });"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-name" href="../index.html">sofia munaro</a>
+      <nav class="site-nav" aria-label="Principal">
+        <a href="../index.html">início</a>
+        <a href="../blog.html" aria-current="page">blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="wrap post">
+
+      <header class="post-header">
+        <h1>TROQUE: título do post</h1>
+        <!-- datetime no formato ano-mês-dia -->
+        <p class="post-meta"><time datetime="2026-01-01">1 jan 2026</time>, 5 min de leitura</p>
+      </header>
+
+      <p>Primeiro parágrafo. Fórmula no meio do texto: $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$.</p>
+
+      <h2>Subtítulo</h2>
+      <p>Fórmula em destaque:</p>
+
+      $$\hat{\beta} = (X^\top X)^{-1} X^\top y$$
+
+      <!-- Código: em HTML, troque < por &lt; e > por &gt; dentro do código -->
+<pre><code>x = [1, 2, 3]
+print(sum(x) / len(x))</code></pre>
+
+      <!-- Tabela -->
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Grupo</th><th>Média</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>A</td><td>1,23</td></tr>
+            <tr><td>B</td><td>4,56</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Imagem ou gráfico: coloque o arquivo em assets/ e tire o comentário
+      <figure>
+        <img src="../assets/meu-grafico.png" alt="Descreva o que o gráfico mostra">
+        <figcaption>Legenda do gráfico.</figcaption>
+      </figure>
+      -->
+
+      <blockquote>Uma citação ou conclusão em destaque.</blockquote>
+
+      <p class="back"><a href="../blog.html">Voltar ao blog</a></p>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Feito à mão por Sofia, 2026.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
